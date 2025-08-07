@@ -1,5 +1,9 @@
+import java.io.BufferedWriter;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Random;
+import java.util.Scanner;
 
 public class Util {
     /**
@@ -13,7 +17,7 @@ public class Util {
         Random gerador = new Random();
         int numero;
         for (;quantidade > 0; quantidade --) {
-            numero = gerador.nextInt(inicio, fim);
+            numero = gerador.nextInt(fim - inicio) + inicio;
             lista.add(numero);
         }
     }
@@ -22,13 +26,14 @@ public class Util {
      * @param lista de inteiros
      */
     public static void exibirListaNumeros(ArrayList<Integer> lista){
-        for (integer item : lista) {
-            System.out.println(item)
+        for (Integer item : lista) {
+            System.out.println(item);
         }
     }
 
     public static void popularListaPalavrasAleatorio(ArrayList<String> lista, int quantidade, int tamanho) {
         Random gerador = new Random();
+        int posicao;
         String palavraGerada;
         char letraSorteada;
         String letras = "abcdefghijklmnopqrstuvwxyz";
@@ -36,7 +41,7 @@ public class Util {
         for (; quantidade > 0; quantidade --) {
             palavraGerada = "";
             for (int i = 0; i < tamanho; i++) {
-                posicao = gerador.nextInt(letras.lenght());
+                posicao = gerador.nextInt(letras.length());
                 letraSorteada = letras.charAt(posicao);
                 palavraGerada += letraSorteada;
             }
@@ -49,5 +54,25 @@ public class Util {
         for (String item : lista) {
             System.out.println(item);
         }
+    }
+
+    public static void popularListaNumerosArquivo(ArrayList<Integer> listaNumeros, String nomeArquivo) throws IOException {
+        FileWriter writer = new FileWriter(nomeArquivo);
+        BufferedWriter buffWrite = new BufferedWriter(writer);
+        for (Integer item : listaNumeros) {
+           buffWrite.append(item.toString().concat("\n"));
+        }
+
+        buffWrite.close();
+    }
+
+    public static void popularListaPalavrasArquivo(ArrayList<String> listaPalavras, String nomeArquivo) throws IOException {
+        FileWriter writer = new FileWriter(nomeArquivo);
+        BufferedWriter buffWrite = new BufferedWriter(writer);
+        for (String item : listaPalavras) {
+           buffWrite.append(item.concat("\n"));
+        }
+
+        buffWrite.close();
     }
 }
