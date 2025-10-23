@@ -1,0 +1,97 @@
+Revisão Geral: Pesquisa
+  A pesquisa é um processo usado para localizar informações em um conjunto de dados.
+
+1. O que é?
+  - A pesquisa consiste em encontrar um elemento específico dentro de uma coleção de dados. Pode ser uma busca por um número, texto ou qualquer outro dado armazenado em uma estrutura de dados 
+  (como arrays, listas, árvores, etc). 
+  - O objetivo da pesquisa é recuperar um dado desejado de forma eficiente.
+
+2. Para que serve?
+  - Eficiência: Encontrar dados rapidamente em grandes volumes de informações.
+  - Sistemas de Recuperação de Informação: Como motores de busca, que precisam encontrar a melhor correspondência entre a consulta do usuário e o conjunto de dados.
+  - Banco de Dados: Para localizar registros, fazer buscas em índices, entre outros.
+
+3. Localizar vs. Recuperar
+
+* **Localizar:** Refere-se ao ato de encontrar a posição de um item ou valor dentro de uma estrutura de dados (ex: encontrar um número específico em uma lista).
+* **Recuperar:** Refere-se ao ato de não apenas localizar o item, mas também obter todas as informações associadas a ele (como buscar um registro completo em uma base de dados).
+
+### 3. Complexidade das Pesquisas
+
+Existem diferentes tipos de algoritmos de pesquisa, que variam em termos de **complexidade** (tempo e recursos necessários para realizar a busca):
+
+* **Pesquisa Sequencial (ou Linear):**
+
+  * **Descrição:** A busca começa do início da estrutura de dados e vai verificando cada elemento até encontrar o alvo.
+  * **Complexidade:** O(n), onde "n" é o número de elementos. A pesquisa pode percorrer toda a estrutura de dados.
+
+* **Pesquisa Binária:**
+
+  * **Descrição:** Só pode ser usada em **listas ordenadas**. A ideia é dividir a lista ao meio a cada iteração, comparando o valor central com o valor procurado. Se o valor procurado for maior ou menor que o valor central, a pesquisa continua na metade da lista correspondente.
+  * **Complexidade:** O(log n), muito mais eficiente que a pesquisa sequencial, especialmente em listas grandes.
+
+* **Pesquisa Digital:**
+
+  * **Descrição:** Utiliza a estrutura de dados baseada em **árvores digitais** ou **tries**, sendo eficiente para buscas em prefixos ou strings. Ideal para buscas rápidas em conjuntos de dados que lidam com strings ou palavras.
+  * **Complexidade:** Depende da implementação, mas geralmente O(m), onde m é o comprimento da string a ser pesquisada.
+
+* **Pesquisa com Tabelas Hash:**
+
+  * **Descrição:** Utiliza uma **função hash** para mapear dados para um índice de uma tabela. Com isso, a busca pode ser feita em tempo constante.
+  * **Complexidade:** O(1) em média, mas pode ser O(n) em casos de colisões altas.
+
+### 4. Fluxo: Armazenar, "Ordenar", Pesquisar
+
+O fluxo de trabalho de uma pesquisa geralmente envolve três etapas:
+
+* **Armazenar:** Colocar os dados em uma estrutura que permita uma busca eficiente. Por exemplo, armazenar dados em um vetor, lista ou árvore.
+* **Ordenar:** Em alguns casos, é necessário ordenar os dados para que algoritmos de pesquisa como a pesquisa binária possam ser usados.
+* **Pesquisar:** Após a ordenação (se necessário), é possível aplicar o algoritmo de pesquisa adequado para encontrar rapidamente os dados desejados.
+
+### 5. Algoritmos de Pesquisa
+
+#### Pesquisa Binária
+
+* **Descrição:** A pesquisa binária é um algoritmo de busca eficiente que só funciona em listas ordenadas.
+* **Passos do algoritmo:**
+
+  1. Compare o elemento do meio com o alvo.
+  2. Se forem iguais, o item foi encontrado.
+  3. Se o elemento do meio for maior que o alvo, a pesquisa continua na metade inferior.
+  4. Se o elemento do meio for menor que o alvo, a pesquisa continua na metade superior.
+* **Complexidade:** O(log n).
+
+#### Pesquisa Digital
+
+* **Descrição:** A pesquisa digital é usada em estruturas de dados como tries, onde os elementos são organizados por seus prefixos (geralmente para strings).
+* **Algoritmo básico:**
+
+  1. Comece com a primeira letra ou número.
+  2. Verifique o próximo dígito.
+  3. Continue até que a palavra seja encontrada ou todas as opções sejam exploradas.
+* **Complexidade:** Geralmente O(m), onde "m" é o comprimento da string.
+
+### 6. Teoria de Tabelas Hash
+
+As tabelas hash são uma técnica de armazenamento e recuperação de dados que utiliza uma **função hash** para mapear dados a índices de uma tabela, permitindo o acesso rápido.
+
+#### Tabela Hash
+
+* **Definição:** Uma tabela hash é uma estrutura de dados que usa uma função hash para associar chaves a valores em um índice da tabela. Cada chave é mapeada para um índice, permitindo acesso rápido aos valores.
+
+#### Função Hash de Endereçamento
+
+* **Definição:** A função hash é responsável por transformar uma chave (que pode ser uma string, número, etc.) em um índice na tabela. Uma boa função hash deve distribuir uniformemente as chaves para evitar colisões.
+* **Exemplo de função hash simples:**
+  [
+  h(k) = k \mod N
+  ]
+  onde (k) é a chave e (N) é o tamanho da tabela.
+
+### Considerações Finais
+
+* O tipo de algoritmo de pesquisa a ser utilizado depende do **tipo de dados**, **tamanho da estrutura** e **necessidade de eficiência**.
+* **Tabelas hash** são uma das abordagens mais rápidas para buscas se a função hash for bem projetada e as colisões forem mínimas.
+* A **pesquisa binária** e **digital** são adequadas para cenários específicos, como listas ordenadas e buscas em strings.
+
+Se precisar de mais detalhes ou quiser explorar algum desses tópicos mais profundamente, posso ajudar!
